@@ -146,7 +146,9 @@ function removeKorak(index){
                                 <select v-model="novaMjera_vremena" class="p-2 bg-amber-50 rounded-2xl h-fit" >
                                         <option value="min">Minute</option>
                                         <option value="hour">Sati</option>
+                                
                                 </select>
+                                <span v-if="novoVrijeme<=0" class="text-red-600 font-bold">Unesi ispravno vrijeme</span>
                             </div>
                             <div class="flex gap-2 items-center">
                                 <span class="font-bold">Promjena kompleksnosti:</span>
@@ -239,7 +241,7 @@ function removeKorak(index){
                     
                 </div>
             </div>
-               <button v-if="noviNaziv!=''&&noviKoraci.length>0&&noviOpis!=''&&noviTip_obroka!=''&&noveNam.length>0" @click="azurirajRecept" class=" bg-red-900 
+               <button v-if="noviNaziv!=''&&novoVrijeme>0&&noviKoraci.length>0&&noviOpis!=''&&noviTip_obroka!=''&&noveNam.length>0" @click="azurirajRecept" class=" bg-red-900 
                         rounded-3xl
                         flex 
                         text-amber-200
@@ -267,7 +269,7 @@ function removeKorak(index){
                         outline-white
                         outline-3
                         font-serif">
-                        Uspješno je spremljen novi recept
+                        Uspješno je ažuriran recept
                         <div class="flex gap-2">
                           <RouterLink to="/Naslovnica" class="bg-white text-black rounded-full p-2 m-2 hover:bg-green-300">
                                 Naslovnica

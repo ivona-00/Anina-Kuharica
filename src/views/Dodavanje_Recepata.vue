@@ -144,6 +144,7 @@ function spremiRecept(){
                                     <option value="min">Minute</option>
                                     <option value="hour">Sati</option>
                                 </select>
+                                <span v-if="noviVrijeme<0" class="text-red-600 font-bold">Unesi ispravno vrijeme</span>
                         </div>
                         Odaberi kompleksnost obroka:
                         <input type="number" min="1" max="5" v-model="noviTezina" class="p-2 bg-white rounded-2xl w-fit">
@@ -287,7 +288,7 @@ function spremiRecept(){
                     <img v-if="korak.img" :src="korak.img" class="w-10 h-10">
                 </div>
             </div>
-            <button v-if="noviNaziv!=''&&noviKoraci.length>0&&noviOpis!=''&&noviTip!=''&&noviSas.length>0" @click="spremiRecept" class=" bg-red-900 
+            <button v-if="noviNaziv!=''&&noviVrijeme>0&&noviKoraci.length>0&&noviOpis!=''&&noviTip!=''&&noviSas.length>0" @click="spremiRecept" class=" bg-red-900 
                         rounded-3xl
                         flex 
                         text-amber-200
@@ -315,7 +316,7 @@ function spremiRecept(){
                         outline-white
                         outline-3
                         font-serif">
-                        Uspješno je ažuriran recept
+                        Uspješno je spremljen novi recept
                         <div class="flex gap-2">
                           <RouterLink to="/Naslovnica" class="bg-white text-black rounded-full p-2 m-2 hover:bg-green-300">
                                 Naslovnica
