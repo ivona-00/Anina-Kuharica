@@ -8,7 +8,7 @@ import UredivanjeNamirnice from '../views/UredivanjeNamirnice.vue'
 import PogledNamirnice from '../views/PogledNamirnice.vue'
 import PogledRecepta from '@/views/PogledRecepta.vue'
 import UredivanjeRecepta from '@/views/UredivanjeRecepta.vue'
-import testing from '@/views/testing.vue'
+
 const router = createRouter({
 history: createWebHistory(import.meta.env.BASE_URL),
 routes: [
@@ -55,11 +55,6 @@ component:PogledNamirnice
 path: '/PogledRecepta/:id',
 name: '/PogledRecepta',
 component:PogledRecepta
-},
-{
-path: '/testing',
-name: 'testing',
-component: testing, 
 },
 {
 path: '/UredivanjeRecepta/:id',

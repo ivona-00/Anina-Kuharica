@@ -73,9 +73,6 @@
             >
                 Namirnice
             </RouterLink>
-            <RouterLink to="/testing">
-                testing
-            </RouterLink>
         </div>
     </nav>
     </div>
