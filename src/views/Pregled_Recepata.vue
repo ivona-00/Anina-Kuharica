@@ -4,7 +4,7 @@
     import { ref, computed } from 'vue'
     const searchNaziv=ref('')
     const searchNamirnica=ref('')
-    const searchTezina=ref('1')
+    const searchTezina=ref('5')
     const searchTip=ref('sve')
     const sortTip=ref('naziv')
     const sortNacin=ref('uzlazno')
