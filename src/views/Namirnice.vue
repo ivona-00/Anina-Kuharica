@@ -110,21 +110,21 @@ function obrisiNamirnicu(namirnica) {
                 </select>
                          
             </div>
-                <div id="info_traka" class="flex gap-75 justify-center items-center p-0.5 outline-red-900 outline-2 bg-amber-100 font-extrabold">
-                    <span class="flex-1">Slika</span>
-                    <span class="flex-1">Naziv</span>
-                    <span class="flex-1">Brand</span>
+                <div id="info_traka" class="grid grid-cols-[120px_1fr_1.5fr] items-center p-0.5 outline-red-900 outline-2 bg-amber-100 font-extrabold">
+                    <span class="justify-self-start">Slika</span>
+                    <span class="justify-self-start">Naziv</span>
+                    <span class="justify-self-start">Brand</span>
                 </div>
-                <div id="pregled"  v-for="namirnica in useFilteri" class="flex gap-75 justify-center items-center outline-1 outline-red-400 bg-amber-100">
-                    <img :src="namirnica.img" class="w-15 h-15" >
-                    <span>
-                       <RouterLink :to="`/PogledNamirnice/${namirnica.id}`" class="ml-15 m-2 cursor-pointer font-serif hover:text-blue-600 text-s" >{{ namirnica.naziv }}</RouterLink> 
+                <div id="pregled"  v-for="namirnica in useFilteri" class="grid grid-cols-[120px_1fr_1.5fr] items-center outline-1 outline-red-400 bg-amber-100">
+                    <img :src="namirnica.img" class="w-15 h-15 justify-self-start" >
+                    <span class="justify-self-start">
+                       <RouterLink :to="`/PogledNamirnice/${namirnica.id}`" class="m-2 cursor-pointer font-serif hover:text-blue-600 text-s" >{{ namirnica.naziv }}</RouterLink> 
                     </span> 
                     
-                    <div>
+                    <div class="flex items-center gap-2 justify-start">
                     <span class="flex-1 text-red-900" >{{ namirnica.brand }}</span> 
-                    <RouterLink :to="`/UredivanjeNamirnice/${namirnica.id}`" class="ml-15 m-2 cursor-pointer font-serif text-blue-600 text-s">Uredi</RouterLink>
-                    <button @click="obrisiNamirnicu(namirnica)" class="m-5 cursor-pointer font-serif text-red-600 text-s">Izbriši</button>
+                    <RouterLink :to="`/UredivanjeNamirnice/${namirnica.id}`" class="cursor-pointer font-serif text-blue-600 text-s">Uredi</RouterLink>
+                    <button @click="obrisiNamirnicu(namirnica)" class="cursor-pointer font-serif text-red-600 text-s">Izbriši</button>
                     </div> 
                     
                 </div>
