@@ -105,6 +105,85 @@ const recepti = [
     kompleksnost: 1,
     tip_obroka:"Desert"
   },
+  {
+    id:2,
+    naziv:"Focaccia",
+    opis:"Hrskava focaccia, savršena uz pivu",
+    namirnice:
+    [
+      {
+        id:9,
+        naziv:"Voda",
+        kolicina:600,
+        mjera:"ml"
+      },
+      {
+        id:3,
+        naziv: 'Glatko Brašno',
+        kolicina:750,
+        mjera:'g'
+      },
+      {
+        id:10,
+        naziv:"Suhi kvasac",
+        kolicina:7,
+        mjera:"g"
+      },
+      ,
+      {
+        id:11,
+        naziv:"Sitna sol",
+        kolicina:12,
+        mjera:"g"
+      },
+      ,
+      {
+        id:12,
+        naziv:"Maslinovo ulje",
+        kolicina:30,
+        mjera:"ml"
+      },
+      {
+        id:13,
+        naziv:"Punjene masline",
+        kolicina:15,
+        mjera:"kom"
+      }
+    ],
+    koraci:[
+      {
+        opis:"U velikoj posudi staviti toplu vodu, sol, kvasac i maslinovo ulje. Sve to zajedno izmješati i staviti da stoji 2-3 min"
+      },
+      {
+        opis:"Dodati brašno i dobro izmjesiti rukama"
+      },
+      {
+        opis:"Prekriti plastičnom folijom i krpom. Ostaviti 20 min na temp većoj od 27°C"
+      },
+      {
+        opis:"Napraviti 3 serije strech-and-fold u intervalima od 15 min"
+      },
+      {
+        opis:"Nakon konačnog strecha dodati malo maslinovog ulja, prekriti foliijom i krpom i ostaviti u frižideru 24-48 h"
+      },
+      {
+        opis:"Nakon frižidera, staviti u lined pleh i ponovo ostaviti da stoji 2h na sobnoj temp"
+      },
+      {
+        opis:"Preliti jos maslinovog ulja i napravit dimples da se stvore mjehuriči i dodati masline po želji"
+      },
+      {
+        opis:"Staviti u pećnicu na 220°C 30 min"
+      },
+      {
+        opis:"Nakon 30 min, pomoćiti koricu sa maslinovim uljem i zapeći dok se ne stvori zlatna korica(15-20 min)"
+      }
+    ],
+    vrijeme: 52,
+    mjera_vremena:'Sati',
+    kompleksnost: 5,
+    tip_obroka:"Kruh"
+  }
  
 ]
 

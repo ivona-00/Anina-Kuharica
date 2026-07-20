@@ -52,8 +52,37 @@ const namirnice = [
     naziv:'Šlag',
     img:"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnajcijena.hr%2F_next%2Fimage%3Furl%3Dhttps%3A%252F%252F6a563d03d7114bf1969e452682.nbg1.your-objectstorage.com%252Fimages%252Fe7e10e44-db8a-4c6f-9532-dd07d48ae564.jpg%26w%3D1200%26q%3D95&f=1&nofb=1&ipt=d55379353c646711f77180b015b0446dd3887a3c1903bf86f502a872210d4def",
     brand:"Meggle"
+  },
+  {
+    id:9,
+    naziv:'Voda',
+    img:"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcontent.byui.edu%2Ffile%2Fa236934c-3c60-4fe9-90aa-d343b3e3a640%2F1%2Fmodule2%2Fimages%2Fwater_2.png&f=1&nofb=1&ipt=bc877f26c325ebcae4da9bd34fc124f6e12346272270ec41d2de6c53606c4fbc",
+    brand:"N/A"
+  },
+  {
+    id:10,
+    naziv:"Suhi kvasac",
+    img:"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.2wmofE5geaSQnT1DHYMDCwHaHa%3Fr%3D0%26pid%3DApi&f=1&ipt=6014d45648eb2052ff89cfdd933d23880165793a49d5067ecdd2aceae513daa8&ipo=images",
+    brand:"N/A"
+  },
+  {
+    id:11,
+    naziv:"Sitna sol",
+    img:"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.ueddQw6Ss7Z-SmdpA1AB5gHaLp%3Fr%3D0%26pid%3DApi&f=1&ipt=aa088b0df3ab993b3df1adfb6243010f7bb52d8cc39a7956ea6437f23acc2103&ipo=images",
+    brand:"N/A"
+  },
+  {
+    id:12,
+    naziv:"Maslinovo ulje",
+    img:"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.Z-ReP9YSpPuDPFW59alVgQHaHa%3Fr%3D0%26pid%3DApi&f=1&ipt=7bc4f1504f42aa47fd2931d174ff4df7648b8f4574fc0951183100968c68df7a&ipo=images",
+    brand:"N/A"
+  },
+  {
+    id:13,
+    naziv:"Punjene masline",
+    img:"https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fapi.cjenoteka.hr%2Fuploads%2Fcache%2Fproduct_large%2Fuploads%2F2025%2F07%2Fpodravka-masline-punjene-pastom-od-paprike-350g-686f6dc43d937.jpeg&f=1&nofb=1&ipt=ead43eec190fbe7c5a69cc98bd143eabfc4a6df2f8dbb6b1d8b99b6f011b72fa",
+    brand:"N/A"
   }
-  
 
 ]
 
