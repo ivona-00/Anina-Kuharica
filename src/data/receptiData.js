@@ -129,14 +129,12 @@ const recepti = [
         kolicina:7,
         mjera:"g"
       },
-      ,
       {
         id:11,
         naziv:"Sitna sol",
         kolicina:12,
         mjera:"g"
       },
-      ,
       {
         id:12,
         naziv:"Maslinovo ulje",
