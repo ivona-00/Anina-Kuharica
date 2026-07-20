@@ -15,7 +15,7 @@
                     namirnica.naziv.toLowerCase().includes(searchNamirnica.value.toLowerCase())
                     )
                 &&recept.kompleksnost<=searchTezina.value
-                &&(searchTip.value==='sve'||recept.tip_obroka.toLowerCase().includes(searchTip.value))
+                &&(searchTip.value==='sve'||recept.tip_obroka.toLowerCase().includes(searchTip.value.toLowerCase()))
             )
             return filtrirano.sort((a,b)=>{let aValue=a[sortTip.value]
                     let bValue = b[sortTip.value]
@@ -81,8 +81,9 @@
                 <input v-model="searchTezina" type="number" id="po_težini" min="1" max="5" class="bg-amber-100 outline-red-900 outline-2 rounded-3xl m-1 p-2 text-xs w-52" placeholder="Filtriraj po kompleksnosti (1-5)">
                 <select v-model="searchTip" name="Tip Obroka" class="bg-amber-100 outline-red-900 outline-2 rounded-3xl m-1 p-2 text-xs">
                     <option value="sve">Sve</option>
-                    <option value="desert">Desert</option>
-                    <option value="slano">Slano</option>
+                    <option v-for="tip in store.tip_obroka" :value="tip">
+                        {{ tip }}
+                    </option>
                 </select>
                 <div class="rounded-full w-0.1 h-10 m-2 border-dotted border-2 border-red-900"></div>
                 <span class="text-xs font-bold">Sortiraj po:</span>
