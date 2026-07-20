@@ -1,8 +1,9 @@
 import receptiData from '../data/receptiData'
 import { defineStore } from 'pinia'
 export const useReceptiStore = defineStore('recepti', {
-  state: () => ({
-    recepti: receptiData,
+  state:()=>({
+    recepti:receptiData,
+    tip_obroka:[...new Set(receptiData.map(recept => recept.tip_obroka))],
   }),
 
   actions:{
