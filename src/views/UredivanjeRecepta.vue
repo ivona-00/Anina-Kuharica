@@ -166,7 +166,7 @@ function removeKorak(index){
                                         {{ sastojak.naziv }}
                                         </option>
                                      </select>
-                                     <button @click="dodajSas()" class=" bg-red-900 
+                                     <button @click="dodajSas()" :disabled="odabraniSas===null" class=" bg-red-900 
                         rounded-3xl
                         text-amber-200
                         font-bold
