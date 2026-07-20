@@ -142,7 +142,7 @@ function removeKorak(index){
                             <input type="text" v-model="noviOpis" placeholder="Ovdje unesi opis recepta" class="h-2 p-3 bg-amber-50 rounded-2xl w-100">
                             <span class="font-bold">Promjena vremena: </span>
                             <div class="flex gap-2 items-center">
-                                <input type="number" min="1" v-model="novoVrijeme" class="h-2/3 p-3 bg-amber-50 rounded-2xl w-fit">
+                                <input type="number" min="1" v-model.number="novoVrijeme" class="h-2/3 p-3 bg-amber-50 rounded-2xl w-fit">
                                 <select v-model="novaMjera_vremena" class="p-2 bg-amber-50 rounded-2xl h-fit" >
                                         <option value="min">Minute</option>
                                         <option value="hour">Sati</option>
@@ -152,7 +152,8 @@ function removeKorak(index){
                             </div>
                             <div class="flex gap-2 items-center">
                                 <span class="font-bold">Promjena kompleksnosti:</span>
-                                <input v-model="novaKompleksnost" type="number" min="1" max="5" class="p-3 bg-amber-50 rounded-2xl w-fit">
+                                <input v-model.number="novaKompleksnost" type="number" min="1" max="5" class="p-3 bg-amber-50 rounded-2xl w-fit">
+                                <span v-if="novaKompleksnost<=0" class="text-red-600 font-bold">Unesi ispravnu kompleksnost</span>
                             </div>
                             <span class="font-bold">Promjena tipa obroka</span>
                             <input v-model="noviTip_obroka" type="text" placeholder="Slatko/Slano/Ručak/Desert" class="h-2 p-3 bg-amber-50 rounded-2xl w-100">
@@ -200,13 +201,15 @@ function removeKorak(index){
                                 </div>
                                         <div v-for="(sas,index) in noveNam" class="text-xs ml-2 flex items-center justify-center">
                                             <RouterLink :to="`/PogledNamirnice/${sas.id}`"class="hover:cursor-pointer hover:text-blue-600 flex-1 text-red-900" >{{ sas.naziv }}</RouterLink>
-                                            <input type="number" min="1" v-model="sas.kolicina" class="flex-1 bg-amber-50 rounded-2xl w-20 p-2 m-2">
-                                    <select class="flex-1 rounded-2xl w-fit bg-amber-50 p-2 m-2" v-model="sas.mjera">
-                                        <option v-for="mjera in mjere">
-                                            {{ mjera}}
-                                        </option>
-                                    </select>
-                                    <button @click="removeSastojak(index)" class="flex-1 hover:cursor-pointer">❌</button>
+                                            <input type="number" min="1" v-model.number="sas.kolicina" class="flex-1 bg-amber-50 rounded-2xl w-20 p-2 m-2">
+                                            
+                                            <select class="flex-1 rounded-2xl w-fit bg-amber-50 p-2 m-2" v-model="sas.mjera">
+                                                <option v-for="mjera in mjere">
+                                                {{ mjera}}
+                                                </option>
+                                            </select>
+                                            <button @click="removeSastojak(index)" class="flex-1 hover:cursor-pointer">❌</button>
+                                            <span v-if="sas.kolicina<=0" class="text-red-600 font-bold">Unesi ispravnu količinu</span>
                                     <br>
                                 </div>
                         </div>
@@ -241,7 +244,7 @@ function removeKorak(index){
                     
                 </div>
             </div>
-               <button v-if="noviNaziv!=''&&novoVrijeme>0&&noviKoraci.length>0&&noviOpis!=''&&noviTip_obroka!=''&&noveNam.length>0" @click="azurirajRecept" class=" bg-red-900 
+               <button v-if="noviNaziv!=''&&novoVrijeme>0&&novaKompleksnost>0&&noviKoraci.length>0&&noviOpis!=''&&noviTip_obroka!=''&&noveNam.length>0" @click="azurirajRecept" class=" bg-red-900 
                         rounded-3xl
                         flex 
                         text-amber-200

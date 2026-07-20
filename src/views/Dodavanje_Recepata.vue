@@ -139,7 +139,7 @@ function spremiRecept(){
                             <input type="text" v-model="noviOpis" placeholder="Ovdje unesi kratki opis" class="p-2 bg-amber-50 rounded-2xl w-100">
                             Vrijeme: 
                             <div class="flex gap-1">
-                                <input type="number" min="1" v-model="noviVrijeme" class="p-2 w-fit bg-amber-50 rounded-2xl">
+                                <input type="number" min="1" v-model.number="noviVrijeme" class="p-2 w-fit bg-amber-50 rounded-2xl">
                                 <select v-model="noviMjera" class="p-2 bg-amber-50 rounded-2xl" >
                                     <option value="min">Minute</option>
                                     <option value="hour">Sati</option>
@@ -147,8 +147,9 @@ function spremiRecept(){
                                 <span v-if="noviVrijeme<0" class="text-red-600 font-bold">Unesi ispravno vrijeme</span>
                         </div>
                         Odaberi kompleksnost obroka:
-                        <input type="number" min="1" max="5" v-model="noviTezina" class="p-2 bg-white rounded-2xl w-fit">
+                        <input type="number" min="1" max="5" v-model.number="noviTezina" class="p-2 bg-white rounded-2xl w-fit">
                         <input type="text" v-model="noviTip" class="p-2 bg-white rounded-2xl w-fit" placeholder="Tip Obroka">
+                        <span v-if="noviTezina<=0" class="text-red-600 font-bold">Unesi ispravnu kompleksnost</span>
                         
                     </div>
                 </div>
@@ -173,7 +174,7 @@ function spremiRecept(){
                                 {{ sastojak.naziv }}
                             </option>
                         </select>
-                        <button @click="dodajSas()" class=" bg-red-900 
+                        <button @click="dodajSas()" :disabled="odabraniSas===null" class=" bg-red-900 
                         rounded-3xl
                         text-amber-200
                         font-bold
@@ -216,6 +217,7 @@ function spremiRecept(){
                                 </option>
                             </select>
                             <button @click="removeSastojak(index)" class="flex-1 hover:cursor-pointer">❌</button>
+                            <span v-if="sas.kolicina<=0" class="text-red-600 font-bold">Unesi ispravnu težinu</span>
                             <br>
                         </div>
                     </div>
@@ -288,7 +290,7 @@ function spremiRecept(){
                     <img v-if="korak.img" :src="korak.img" class="w-10 h-10">
                 </div>
             </div>
-            <button v-if="noviNaziv!=''&&noviVrijeme>0&&noviKoraci.length>0&&noviOpis!=''&&noviTip!=''&&noviSas.length>0" @click="spremiRecept" class=" bg-red-900 
+            <button v-if="noviNaziv!=''&&noviVrijeme>0&&novaKompleksnost>0&&noviKoraci.length>0&&noviOpis!=''&&noviTip!=''&&noviSas.length>0" @click="spremiRecept" class=" bg-red-900 
                         rounded-3xl
                         flex 
                         text-amber-200
