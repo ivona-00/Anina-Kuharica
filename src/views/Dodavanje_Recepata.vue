@@ -77,7 +77,7 @@ function spremiRecept(){
 </script>
 
 <template>
-    <div id="plate" class="bg-red-950 w-full h-fit flex flex-col gap-5 items-center">
+    <div id="plate" class="bg-red-950 w-screen h-full flex flex-col gap-5 items-center">
         <div id="plate" class="bg-red-950 w-full h-full flex flex-col gap-3 ">
             <div class="flex">
                 <nav>
@@ -131,7 +131,7 @@ function spremiRecept(){
                     Novi Recept  
                 </div>
             </div> 
-            <div name="form" class="bg-amber-200 w-screen rounded-2xl h-fit m-2 flex flex-col">
+            <div name="form" class="bg-amber-200 w-full rounded-2xl h-fit m-2 flex flex-col">
                 <div class="flex">
                     <div name="basics" class="bg-amber-200 rounded-3xl h-fit w-fit m-2 p-2">
                         <div class="flex flex-col gap-2">

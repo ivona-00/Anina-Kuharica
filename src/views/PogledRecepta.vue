@@ -133,7 +133,7 @@ function obrisiRecept() {
 
                                 <div class="bg-red-950 rounded-3xl p-2 text-white w-full">
                                     <div v-for="(namirnica,index) in namirnice" :key="index" class="flex items-center gap-3">
-                                        <span class="font-bold">{{ namirnica.naziv }}</span>
+                                        <RouterLink :to="`/PogledNamirnice/${namirnica.id}`" class="font-bold hover:cursor-pointer hover:text-blue-500">{{ namirnica.naziv }}</RouterLink>
                                         <span>{{ namirnica.kolicina || namirnica.količina }} {{ namirnica.mjera }}</span>
                                     </div>
                                 </div>

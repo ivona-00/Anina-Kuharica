@@ -36,7 +36,7 @@
 </script>
 
 <template>
-    <div id="plate" class="bg-red-950 w-screen h-screen flex flex-col gap-3 ">
+    <div id="plate" class="bg-red-950 w-full h-full flex flex-col gap-3 ">
         <div class="flex">
             <nav>
                     <RouterLink to="/Naslovnica" class="
