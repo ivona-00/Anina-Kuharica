@@ -290,7 +290,7 @@ function spremiRecept(){
                     <img v-if="korak.img" :src="korak.img" class="w-10 h-10">
                 </div>
             </div>
-            <button v-if="noviNaziv!=''&&noviVrijeme>0&&novaKompleksnost>0&&noviKoraci.length>0&&noviOpis!=''&&noviTip!=''&&noviSas.length>0" @click="spremiRecept" class=" bg-red-900 
+            <button v-if="noviNaziv!=''&&noviVrijeme>0&&novaKompleksnost>0&&noviKoraci.length()>0&&noviOpis!=''&&noviTip!=''&&noviSas.length()>0" @click="spremiRecept" class=" bg-red-900 
                         rounded-3xl
                         flex 
                         text-amber-200
