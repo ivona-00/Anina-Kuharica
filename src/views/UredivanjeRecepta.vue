@@ -95,7 +95,7 @@ function removeKorak(index){
                             w-fit
                             m-2
                             p-3">Naslovnica</RouterLink>
-                        <RouterLink to="/Namirnice" class="
+                        <RouterLink :to="`/PogledRecepta/${idrec}`" class="
                             hover:bg-amber-200 hover:text-red-950
                             bg-amber-200 
                             rounded-3xl

@@ -15,7 +15,7 @@ const noviTezina=ref(1)
 const noviTip=ref('')
 const selectIzbora=ref('')
 const novaSlika=ref(null)
-const previewUrl = ref('')
+const previewUrl=ref('')
 const mjere=(['g','dg','kg','ml','dl','l','kom','vrećica'])
 const spremljenoNotif=ref(false)
 const dodajSliku=ref(false)
@@ -23,6 +23,12 @@ const korakOpis=ref('')
 function daSlika(){
     dodajSliku.value=true
     novaSlika.value=null
+}
+function daPromjeni(index){
+    if(!noviKoraci.value||!noviKoraci.value[index]) return
+    if(noviKoraci.value[index].selectIzbora===undefined) noviKoraci.value[index].selectIzbora=''
+    if(noviKoraci.value[index].editingImage===undefined) noviKoraci.value[index].editingImage=true
+    else noviKoraci.value[index].editingImage=true
 }
 function removeSastojak(index){
     noviSas.value.splice(index,1)
@@ -46,23 +52,28 @@ function dodajKorak(){
     previewUrl.value=''
     selectIzbora.value=''
 }
-
-
-function lokalniPreview(event) {
-  const file = event.target.files?.[0]
-  if (!file) {
-    previewUrl.value = 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%2Fid%2FOIP.KPkULtf-tjkTXyI7GksHgAHaEK%3Fpid%3DApi&f=1&ipt=3fd85fc937a236ab56b1bc8484d96f0d6d2df85b7d79ddd3a0ec1aec03abff06&ipo=images'
-    return
-  }
-
-  previewUrl.value = URL.createObjectURL(file)
+function lokalniPreview(event,index=null){
+    const file=event.target.files?.[0]
+    if(!file){
+        if(index!==null&&noviKoraci.value?.[index]){
+            noviKoraci.value[index].img=''
+        }else{
+            previewUrl.value=''
+        }
+        return
+    }
+    const objectUrl=URL.createObjectURL(file)
+    if(index!==null&&noviKoraci.value?.[index]){
+        noviKoraci.value[index].img=objectUrl
+        noviKoraci.value[index].editingImage=false
+    }else{
+        previewUrl.value=objectUrl
+    }
 }
-
 function spremiRecept(){
-    
     rstore.addRecept({
         id:Date.now(),
-        naziv: noviNaziv.value,
+        naziv:noviNaziv.value,
         opis:noviOpis.value,
         namirnice:noviSas.value,
         koraci:noviKoraci.value,
@@ -70,15 +81,14 @@ function spremiRecept(){
         mjera_vremena:noviMjera.value,
         kompleksnost:noviTezina.value,
         tip_obroka:noviTip.value
-        
     })
     spremljenoNotif.value=true
 }
 </script>
 
 <template>
-    <div id="plate" class="bg-red-950 w-screen h-full flex flex-col gap-5 items-center">
-        <div id="plate" class="bg-red-950 w-full h-full flex flex-col gap-3 ">
+    <div id="plate" class="bg-red-950 w-screen h-fit flex flex-col gap-5 items-center">
+        <div id="plate" class="bg-red-950 w-full h-fit flex flex-col gap-3 ">
             <div class="flex">
                 <nav>
                         <RouterLink to="/Naslovnica" class="
@@ -279,18 +289,24 @@ function spremiRecept(){
                         <div>
                             <button title="Obriši" @click="removeKorak(index)" class="hover:cursor-pointer">
                             ❌
-                            </button>
-                            
+                            </button> 
                         </div>
-                        
                     </div>
-                    
                     <br>
-                    <span class="flex">{{ korak.opis }} </span>
-                    <img v-if="korak.img" :src="korak.img" class="w-10 h-10">
+                    <input type="text" v-model="korak.opis" placeholder="Opis koraka" class="h-fit p-3 bg-amber-50 rounded-2xl w-full">
+                    <div>
+                     <img v-if="korak.img" :src="korak.img" class="w-10 h-10">
+                    <button @click="()=>daPromjeni(index)" v-show="!korak.editingImage" class="text-xs hover:cursor-pointer hover:text-blue-500">Promjeni sliku</button>
+                    <select v-show="korak.editingImage" v-model="korak.selectIzbora" class="bg-amber-50 rounded-3xl m-1 p-2 text-xs w-fit">
+                                    <option value="PC">Učitaj Sa Svog PC-a</option>
+                                    <option value="link">Unesi link</option>
+                    </select>
+                    <input type="file" @change="(e)=>lokalniPreview(e,index)" v-show="korak.selectIzbora=='PC'" accept="image/*" class="bg-amber-50 rounded-3xl m-1 p-2 w-fit h-fit">
+                    <input type="text" v-model="korak.img" v-show="korak.selectIzbora=='link'" placeholder="Ovdje zaljepi link" class="bg-amber-50 rounded-3xl m-1 p-2 text-xs w-fit">
+                </div>
                 </div>
             </div>
-            <button v-if="noviNaziv!=''&&noviVrijeme>0&&novaKompleksnost>0&&noviKoraci.length()>0&&noviOpis!=''&&noviTip!=''&&noviSas.length()>0" @click="spremiRecept" class=" bg-red-900 
+            <button v-if="noviNaziv!=''&&noviVrijeme>0&&noviTezina>0&&noviKoraci.length>0&&noviOpis!=''&&noviTip!=''&&noviSas.length>0" @click="spremiRecept" class=" bg-red-900 
                         rounded-3xl
                         flex 
                         text-amber-200
