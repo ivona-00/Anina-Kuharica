@@ -17,18 +17,17 @@
                 &&recept.kompleksnost<=searchTezina.value
                 &&(searchTip.value==='sve'||recept.tip_obroka.toLowerCase().includes(searchTip.value.toLowerCase()))
             )
-            return filtrirano.sort((a,b)=>{let aValue=a[sortTip.value]
-                    let bValue = b[sortTip.value]
-
-                    if (sortTip.value==='naziv'||sortTip.value==='tip_obroka'){
+            return filtrirano.sort((a,b)=>{
+                const sortKey=sortTip.value==='tezina'?'kompleksnost':sortTip.value
+                let aValue=a[sortKey]
+                let bValue=b[sortKey]
+                if (sortKey==='naziv'||sortKey==='tip_obroka'){
                     aValue=aValue.toLowerCase()
                     bValue=bValue.toLowerCase()
-                    }
-
-                    if (aValue<bValue) return sortNacin.value==='uzlazno'?-1:1
-                    if (aValue>bValue) return sortNacin.value==='uzlazno'?1:-1
-                    return 0
-
+                }
+                if (aValue<bValue) return sortNacin.value==='uzlazno'?-1:1
+                if (aValue>bValue) return sortNacin.value==='uzlazno'?1:-1
+                return 0
             })
         })
 
@@ -79,7 +78,7 @@
                 <input v-model="searchNaziv" type="text" id="po_nazivu" class="bg-amber-100 outline-red-900 outline-2 rounded-3xl m-1 p-2 text-xs" placeholder="Filtriraj po nazivu">
                 <input v-model="searchNamirnica" type="text" id="po_namirnici" class="bg-amber-100 outline-red-900 outline-2 rounded-3xl m-1 p-2 text-xs" placeholder="Filtriraj po namirnici">
                 <input v-model="searchTezina" type="number" id="po_težini" min="1" max="5" class="bg-amber-100 outline-red-900 outline-2 rounded-3xl m-1 p-2 text-xs w-52" placeholder="Filtriraj po kompleksnosti (1-5)">
-                <select v-model="searchTip" name="Tip Obroka" class="bg-amber-100 outline-red-900 outline-2 rounded-3xl m-1 p-2 text-xs">
+                <select v-model="searchTip" name="tip_obroka" class="bg-amber-100 outline-red-900 outline-2 rounded-3xl m-1 p-2 text-xs">
                     <option value="sve">Sve</option>
                     <option v-for="tip in store.tip_obroka" :value="tip">
                         {{ tip }}
@@ -87,9 +86,9 @@
                 </select>
                 <div class="rounded-full w-0.1 h-10 m-2 border-dotted border-2 border-red-900"></div>
                 <span class="text-xs font-bold">Sortiraj po:</span>
-                <select v-model="sortTip" name="odabir _sortiranja" class="bg-amber-100 outline-red-900 outline-2 rounded-3xl m-1 p-2 text-xs">
+                <select v-model="sortTip" name="odabir_sortiranja" class="bg-amber-100 outline-red-900 outline-2 rounded-3xl m-1 p-2 text-xs">
                     <option value="naziv">Abecedno(Naziv)</option>
-                    <option value="tezina">Kompleksnost</option>
+                    <option value="kompleksnost">Kompleksnost</option>
                     <option value="vrijeme">Vrijeme</option>
                 </select>
                 <select v-model="sortNacin" class="bg-amber-100 outline-red-900 outline-2 rounded-3xl m-1 p-2 text-xs">
