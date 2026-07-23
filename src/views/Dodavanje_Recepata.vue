@@ -87,7 +87,7 @@ function spremiRecept(){
 </script>
 
 <template>
-    <div id="plate" class="bg-red-950 w-screen h-fit flex flex-col gap-5 items-center">
+    <div id="plate" class="bg-red-950 w-screen h-full flex flex-col gap-5 items-center">
         <div id="plate" class="bg-red-950 w-full h-fit flex flex-col gap-3 ">
             <div class="flex">
                 <nav>

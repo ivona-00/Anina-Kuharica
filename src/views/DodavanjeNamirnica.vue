@@ -26,6 +26,7 @@ function spremiNamirnicu(){
         brand: noviBrand.value || 'N/A'
     })
     spremljenoNotif.value=true
+    novaNaziv.value=''
 }
 </script>
 

@@ -2,7 +2,7 @@
 
 </script>
 <template>
-    <div class="bg-red-950 w-screen h-screen flex flex-col gap-5 items-center">
+    <div class="bg-red-950 w-screen h-full flex flex-col gap-5 items-center">
         <div 
             id="header_naslovnica" 
             class="bg-linear-to-b 
@@ -75,6 +75,7 @@
             </RouterLink>
         </div>
     </nav>
+    <img  class="rounded-3xl" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.istockphoto.com%2Fid%2F1161153224%2Fphoto%2Fvintage-cookbook-with-spices-and-herbs-on-rustic-wooden-background.jpg%3Fs%3D612x612%26w%3D0%26k%3D20%26c%3D5IEYo7Ad-OetMkhjBUJtkrcsAKX606EHYKbhjiUHNQo%3D&f=1&nofb=1&ipt=d26042ababfbcaaedeb648cc860573c4543eb0cd5c05b0aa897ae07f3c843b14">
     </div>
 
 </template>
