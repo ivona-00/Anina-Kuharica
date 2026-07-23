@@ -87,7 +87,7 @@ function spremiNamirnicu(){
                 
             </div> 
             
-            <div class="bg-amber-200 rounded-3xl h-screen m-2 p-2 flex gap-5">
+            <div class="bg-amber-200 rounded-3xl h-fit w-fit m-2 p-2 flex gap-5">
                 <div class="flex flex-col">
                     <div>
                         <input v-model="novaNaziv" type="text" placeholder="Upiši naziv nove namirnice" class="bg-amber-100 outline-red-900 outline-2 rounded-3xl m-1 p-2 text-xs w-100">
