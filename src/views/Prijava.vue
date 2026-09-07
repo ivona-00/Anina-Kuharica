@@ -22,11 +22,10 @@ try {
     const provider = new GoogleAuthProvider();
     const userCredential = await signInWithPopup(auth, provider);
     response.value.error = false;
-    response.value.message = 'Korisnik registriran: ' +
-    JSON.stringify(userCredential.user);
+    response.value.message = 'Uspješno ste se registrirali! YIPPEE'
     } catch (error) {
     response.value.error = true;
-    response.value.message = 'Greška pri registraciji: ' + error.message;
+    response.value.message = 'NOOOOOO' + error.message;
 }
 };
 </script>
