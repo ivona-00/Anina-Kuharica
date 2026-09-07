@@ -8,7 +8,8 @@ import UredivanjeNamirnice from '../views/UredivanjeNamirnice.vue'
 import PogledNamirnice from '../views/PogledNamirnice.vue'
 import PogledRecepta from '@/views/PogledRecepta.vue'
 import UredivanjeRecepta from '@/views/UredivanjeRecepta.vue'
-
+import Prijava from '@/views/Prijava.vue'
+import Registracija from '@/views/Registracija.vue'
 const router = createRouter({
 history: createWebHistory(import.meta.env.BASE_URL),
 routes: [
@@ -61,6 +62,16 @@ path: '/UredivanjeRecepta/:id',
 name: '/UredivanjeRecepta',
 component:UredivanjeRecepta
 },
+{
+    path:'/Registracija',
+    name:'Registracija',
+    component:Registracija
+},
+{
+    path:'/Prijava',
+    name:'Prijava',
+    component:Prijava
+}
 ],
 })
 export default router // izvoz routera
